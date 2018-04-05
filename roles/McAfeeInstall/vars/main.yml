@@ -1,0 +1,4 @@
+---
+# vars file for McAfeeInstall
+
+setup_file_path: C:\umar_idm\VSE880EMLRP7\SetupVSE.exe ADDLOCAL=ALL REBOOT=A /q

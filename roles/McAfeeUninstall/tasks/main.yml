@@ -1,0 +1,17 @@
+---
+# tasks file for McAfeeUninstall
+    - name: remove McAfee Virusscan
+      win_shell: Start-Process "C:\Windows\System32\msiexec.exe" -ArgumentList "/x {CE15D1B6-19B6-4D4D-8F43-CF5D2C3356FF}/qn" -Wait
+      register: virusscan_removal_info
+    - debug: msg="{{virusscan_removal_info}}"
+
+    - name: Remove McAfee VirusAgent
+      win_package:
+        path: C:\Program Files (x86)\McAfee\Common Framework\frminst.exe
+        state: absent
+      register: agent_removal_info
+    - debug: msg="{{agent_removal_info}}"
+   
+    - name: Reboot Started
+      win_reboot:
+

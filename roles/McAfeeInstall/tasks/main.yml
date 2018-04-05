@@ -1,0 +1,9 @@
+---
+# tasks file for McAfeeInstall
+- name: install McAfee virus scan
+  win_shell: "{{setup_file_path}}"
+
+- name: reboot
+  win_reboot: 
+  tags:
+    - reboot 

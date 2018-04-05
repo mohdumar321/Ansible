@@ -1,0 +1,8 @@
+---
+# vars file for LinuxPartition
+
+src_path: config/winpart.psi
+dest_path: C:\winparttemp
+command: C:\winparttemp\winpart.ps1
+total_volume_size: 60GB
+

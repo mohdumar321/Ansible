@@ -1,0 +1,28 @@
+---
+# tasks file for McAfeeInstallation
+  
+    - name: Create a Directory to copy Setup on Remote Server
+      win_file:
+         path: C:\TEMP
+         state: directory
+      tags:
+         - directory
+
+    - name: Copy the setup of McAfee VirusScan Enterprise 8.8
+      win_copy:
+         src: config/VSE880EMLRP7
+         dest: C:\Temp
+      tags:
+         - setupcopied
+
+    - name: Running Installation Setup
+      win_package:
+           path: "{{setup_path}}"
+           arguments: /install /passive /norestart
+           product_id: auto
+           state: present
+      tags:
+         - installed
+ 
+          
+              
